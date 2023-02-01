@@ -1,0 +1,26 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
