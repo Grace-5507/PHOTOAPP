@@ -43,7 +43,7 @@ class UsersResource(Resource):
 
         return new_user, 201
 
-@users_ns.route("/users", methods=["GET", "PUT"])   
+@users_ns.route("/users", methods=["GET", "PUT", "DELETE"])   
 class UsersResource(Resource):
     @users_ns.marshal_with(users_model)
     def get(self, id):

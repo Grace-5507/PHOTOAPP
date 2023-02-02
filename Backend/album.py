@@ -3,6 +3,8 @@ from models import Albums
 from flask_jwt_extended import jwt_required
 
 
+
+
 albums_ns = Namespace("albums", description="A namespace for Albums")
 
 albums_model = albums_ns.model(

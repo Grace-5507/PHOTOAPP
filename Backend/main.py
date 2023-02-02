@@ -7,13 +7,18 @@ from album import albums_ns
 from flask_jwt_extended import JWTManager
 from config import DevConfig
 from exts import db
+from flask_migrate import Migrate
+from models import Users, Albums, Photos
+from flask_cors import CORS
 
 
 def create_app(config):
     app=Flask(__name__)
     app.config.from_object(DevConfig)
+    CORS(app) #configuring api to work with the client application
     db.init_app(app)
-    
+    migrate = Migrate(app, db)
+
     api=Api(app, doc="/docs")
     JWTManager(app)
 
@@ -35,5 +40,6 @@ def create_app(config):
             
             }
     return app
+
 
        

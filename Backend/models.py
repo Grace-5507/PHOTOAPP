@@ -1,27 +1,15 @@
 from exts import db
-'''import os
 
-from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, exc
 
-#from flask_migrate import Migrate
 
-BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+os.path.join(BASE_DIR, "album.db")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DEBUG=True
-SQLALCHEMY_ECHO=True
-
-db = SQLAlchemy(app)
-#migrate = Migrate(app,db)'''
 
 class Users(db.Model):
     __tablename__ = 'Users'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), nullable=False)
-    username = db.Column(db.String(200), nullable=False)
+    name = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(200), nullable=False, unique=True)
     email= db.Column(db.String(500), nullable=False)
     password = db.Column(db.String(500), nullable=False)
     
@@ -31,6 +19,9 @@ class Users(db.Model):
         self.name = name
         self.username = username
         self.email = email
+        
+    def __repr__(self):
+        return f'<Users {self.username} >'
     
     def save(self):
         db.session.add(self)
@@ -63,6 +54,9 @@ class Albums(db.Model):
     def __init__(self, user, Album_title):
         self.user_id = user_id
         self.Album_title = Album_title
+        
+    def __repr__(self):
+        return f"<Albums {self.Album_title}"
     
     
     def save(self):
@@ -88,7 +82,7 @@ class Albums(db.Model):
 class Photos(db.Model):
     __tablename__ = 'Photos'
     id = db.Column(db.Integer(), primary_key=True)
-    Album_id = db.Column(db.Integer, primary_key=True)
+    Album_id = db.Column(db.Integer(), nullable=True)
     photo_title = db.Column(db.String(120), nullable=False)
     image_url = db.Column(db.String(120), nullable=False)
     
@@ -98,6 +92,8 @@ class Photos(db.Model):
         self.photo_title = photo_title
         self.image_url = image_url 
     
+    def __repr__(self):
+        return f'<Photos {photo_title}>'
     
     def save(self):
        

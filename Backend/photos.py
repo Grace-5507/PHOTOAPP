@@ -7,7 +7,7 @@ photos_ns = Namespace("photos", description="A namespace for Photos")
 
 photos_model = photos_ns.model(
     "Photos",
-   {"id": fields.Integer(), "album_id": fields.String(),"photo_title": fields.String(), "image_url": fields.String},
+   {"id": fields.Integer(), "album_id": fields.Integer(),"photo_title": fields.String(), "image_url": fields.String},
 )
 
 @photos_ns.route("/Hello")
