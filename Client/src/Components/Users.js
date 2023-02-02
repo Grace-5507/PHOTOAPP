@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import classes from "../Styles/Users.module.css";
+//import classes from "../Styles/Users.module.css";
 
-const UserInfo = ({ match }) => {
+const Users = ({ match }) => {
   const [user, setUser] = useState({});
   const [albums, setAlbums] = useState([]);
 
@@ -42,4 +42,4 @@ const UserInfo = ({ match }) => {
   );
 };
 
-export default UserInfo;
+export default Users;

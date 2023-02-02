@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "../Styles/Home.module.css";
+//import classes from "../Styles/Home.module.css";
 
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     // Make a GET request for the users
-    fetch("/home")
+    fetch("/Users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

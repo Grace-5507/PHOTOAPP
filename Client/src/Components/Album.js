@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import classes from "../Styles/Album.module.css";
+//import classes from "../Styles/Album.module.css";
 
-function AlbumPage({ match }) {
+function Album({ match }) {
   const [album, setAlbum] = useState({});
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
     const fetchAlbum = async () => {
-      const res = await axios.get(`/albums/${match.params.id}`);
+      const res = await axios.get(`/Album/${match.params.id}`);
       setAlbum(res.data);
     };
     fetchAlbum();
@@ -17,7 +17,7 @@ function AlbumPage({ match }) {
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const res = await axios.get(`/albums/${match.params.id}/photos`);
+      const res = await axios.get(`/albums/albums${match.params.id}/photos`);
       setPhotos(res.data);
     };
     fetchPhotos();
@@ -36,4 +36,4 @@ function AlbumPage({ match }) {
   );
 }
 
-export default AlbumPage;
+export default Album;

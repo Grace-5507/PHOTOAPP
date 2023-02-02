@@ -1,9 +1,9 @@
-import classes from "../Styles/Photos.module.css";
+//import classes from "../Styles/Photos.module.css";
 import React, { useState, useEffect } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
 
-const PhotoPage = (props) => {
+const Photos = (props) => {
   const [photo, setPhoto] = useState({});
   const [title, setTitle] = useState("");
 
@@ -50,5 +50,5 @@ const PhotoPage = (props) => {
   );
 };
 
-export default PhotoPage;
+export default Photos;
 
